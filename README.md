@@ -1,0 +1,1 @@
+A simple web application to connect to server through ssh and perform various operation on the server through a simplified GUI in web browser.
