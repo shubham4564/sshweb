@@ -1,10 +1,20 @@
+<html>
+<head><title>Welcome to SSH Web</title></head>
+<body>
+
+<form id="server_restart" action="server_restart.php" method="POST" accept-charset="UTF-8">
+		        <br><input type="submit" name="btn_server_restart" value="Server Restart"><br>
+		        </form>
 <?php
-	
+	session_start();
 	$uname = $_POST['uname'];
 	$passwd = $_POST['passwd'];
 
+	$_SESSION["uname_dash"] = $uname;
+	$_SESSION["passwd_dash"] = $passwd;
+
 	// trigger the submit button
-	if(isset($_POST[login])) {
+	if(isset($_POST[btn_login])) {
 		//create the connection to the remote computer, first is the ip of remote computer and second parameter is port.
 		if($ssh = ssh2_connect('192.168.56.102', 7773)) {
 		   //take the password and username from the form value with POST method for little secure. 
@@ -20,7 +30,8 @@
 		        echo $data; // prints the data
 		    }
 }
-
 	}else{echo'nothing';}
-
 ?>
+
+</body>
+</html>

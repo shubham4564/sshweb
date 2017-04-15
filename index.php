@@ -12,7 +12,7 @@
 	<h3><label>Password</label></h3>
 		<input type="password" name="passwd" method=POST> <br>
 
-	<br><input type="submit" name="login" value="Log In"><br>
+	<br><input type="submit" name="btn_login" value="Log In"><br>
 </fieldset>
 </form>
 
