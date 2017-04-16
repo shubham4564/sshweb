@@ -3,7 +3,7 @@
 <body>
 	<H1> SSH Web Login page. Log in Carefully!</H1>
 <p>
-<form id="login" action="dashboard.php" method="POST" accept-charset="UTF-8">
+<form id="login" action="functions/dashboard.php" method="POST" accept-charset="UTF-8">
 <fieldset>
 <legend><h2>Login</h2></legend>
 	<input type='hidden' name='submitted' id='submitted' value='1'/>
