@@ -9,14 +9,18 @@
 	session_start();
 	$uname = $_POST['uname'];
 	$passwd = $_POST['passwd'];
+	$remoteip = "192.168.56.102";
+	$port = "7773";
 
+	$_SESSION["remoteip"] = $remoteip;
+	$_SESSION["port"] = $port;
 	$_SESSION["uname_dash"] = $uname;
 	$_SESSION["passwd_dash"] = $passwd;
 
 	// trigger the submit button
 	if(isset($_POST[btn_login])) {
 		//create the connection to the remote computer, first is the ip of remote computer and second parameter is port.
-		if($ssh = ssh2_connect('192.168.56.102', 7773)) {
+		if($ssh = ssh2_connect($remoteip, $port)) {
 		   //take the password and username from the form value with POST method for little secure. 
 		   if(ssh2_auth_password($ssh, $uname, $passwd)) {
 		   		echo "You are logged in as : ";

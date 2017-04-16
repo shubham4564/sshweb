@@ -4,14 +4,17 @@
 <?php
 	session_start();
 	
+	$remoteip = $_SESSION["remoteip"];
+	$port = $_SESSION["port"];
 	$uname = $_SESSION["uname_dash"];
 	$passwd = $_SESSION["passwd_dash"]; 
+
 	// trigger the submit button
 	if(isset($_POST[btn_server_restart])) {
 		//echo "yesdffs".PHP_EOL;
 
 		//create the connection to the remote computer, first is the ip of remote computer and second parameter is port.
-		if($ssh = ssh2_connect('192.168.56.102', 7773)) {
+		if($ssh = ssh2_connect($remoteip, $port)) {
 		   //take the password and username from the form value with POST method for little secure. 
 		   if(ssh2_auth_password($ssh, $uname, $passwd)) {
 		   		//echo "yes";
